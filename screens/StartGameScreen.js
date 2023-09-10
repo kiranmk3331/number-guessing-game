@@ -3,7 +3,7 @@ import PrimaryButton from "../components/ui/PrimaryButton";
 import { useState } from "react";
 import Colors from "../constants/color";
 
-const StartGameScreen = ({ setUserNumber }) => {
+const StartGameScreen = ({ onPickNumber }) => {
   const [enteredNumber, setEnteredNumber] = useState("");
 
   const inputHandler = (inputNumber) => {
@@ -19,7 +19,7 @@ const StartGameScreen = ({ setUserNumber }) => {
       ]);
     }
 
-    setUserNumber(chosenNumber);
+    onPickNumber(chosenNumber);
   };
 
   const inputResetHandler = () => {
