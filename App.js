@@ -40,10 +40,17 @@ export default function App() {
     setNumberOfGuesses(0);
   };
 
+  const gameOverHandler = (numberOfRounds) => {
+    setGameOver(true);
+    setNumberOfGuesses(numberOfRounds);
+  };
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
 
   if (userNumber) {
-    screen = <GameScreen userNumber={userNumber} setGameOver={setGameOver} />;
+    screen = (
+      <GameScreen userNumber={userNumber} setGameOver={gameOverHandler} />
+    );
   }
 
   if (gameOver && userNumber) {
